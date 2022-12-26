@@ -1,0 +1,78 @@
+@import './nullstyle.css';
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+.app {
+	max-width: 661px;
+	max-height: 763px;
+	background: #c4c4c4;
+	margin: 0 auto;
+	border-radius: 10px;
+	padding: 62px 64px 640px 77px;
+	position: relative;
+}
+.search-line {
+}
+.search-input {
+	max-width: 500px;
+	height: 61px;
+
+	font-family: 'Roboto', sans-serif;
+	font-style: normal;
+	font-weight: 400;
+	font-size: 48px;
+	line-height: 56px;
+	border-radius: 5px;
+}
+.search-list {
+}
+.search-list-item {
+	width: 500px;
+	height: 44px;
+	background: #e3e3e3;
+	border: 2px solid #000000;
+
+	font-size: 30px;
+	line-height: 35px;
+}
+.main {
+	position: absolute;
+	bottom: 70px;
+}
+.repositories-list {
+	padding-top: 45px;
+	/* bottom: 0; */
+	max-width: 503px;
+}
+.repositories-item {
+	width: 503px;
+	height: 101px;
+	background: #e27beb;
+	border: 1px solid #000000;
+	padding: 8px 17px;
+	border-radius: 10px;
+}
+.item {
+	position: relative;
+}
+.item-name,
+.item-owner,
+.item-stars {
+	font-size: 24px;
+	line-height: 28px;
+}
+.item-btn {
+	position: absolute;
+	right: 0;
+	top: 20px;
+}
+.btn-close {
+	width: 45px;
+	height: 45px;
+	margin: auto 0;
+	background-color: transparent;
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' height='48' width='48' fill='red'%3e%3cpath d='m16.5 33.6 7.5-7.5 7.5 7.5 2.1-2.1-7.5-7.5 7.5-7.5-2.1-2.1-7.5 7.5-7.5-7.5-2.1 2.1 7.5 7.5-7.5 7.5ZM24 44q-4.1 0-7.75-1.575-3.65-1.575-6.375-4.3-2.725-2.725-4.3-6.375Q4 28.1 4 24q0-4.15 1.575-7.8 1.575-3.65 4.3-6.35 2.725-2.7 6.375-4.275Q19.9 4 24 4q4.15 0 7.8 1.575 3.65 1.575 6.35 4.275 2.7 2.7 4.275 6.35Q44 19.85 44 24q0 4.1-1.575 7.75-1.575 3.65-4.275 6.375t-6.35 4.3Q28.15 44 24 44Zm0-3q7.1 0 12.05-4.975Q41 31.05 41 24q0-7.1-4.95-12.05Q31.1 7 24 7q-7.05 0-12.025 4.95Q7 16.9 7 24q0 7.05 4.975 12.025Q16.95 41 24 41Zm0-17Z'/%3e%3c/svg%3e");
+	background-position: center;
+}
+.btn-close:hover {
+	opacity: 0.25;
+}
