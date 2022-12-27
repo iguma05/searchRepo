@@ -4,33 +4,12 @@ export class View {
 		this.searchLine = this.createElement('section', 'search-line');
 		this.searchInput = this.createElement('input', 'search-input');
 		this.searchList = this.createElement('ul', 'search-list');
+		this.searchListItem = this.createElement('li', 'search-list-item');
 
 		this.main = this.createElement('section', 'main');
 		this.repositoriesList = this.createElement('ul', 'repositories-list');
 		this.repositoriesItem = this.createElement('li', 'repositories-item');
-		this.repositoriesList.append(this.repositoriesItem);
 		this.main.append(this.repositoriesList);
-
-		this.itemData = this.createElement('ul', 'item');
-		this.itemName = this.createElement('li', 'item-name');
-		this.itemName.textContent = `Name:`; // ${name}`;
-		this.itemOwner = this.createElement('li', 'item-owner');
-		this.itemOwner.textContent = `Owner:`; //${owner}`;
-		this.itemStars = this.createElement('li', 'item-stars');
-		this.itemStars.textContent = `Stars:`; // ${stars}`;
-
-		this.itemBtn = this.createElement('li', 'item-btn');
-		this.btnClose = this.createElement('button', 'btn-close');
-
-		this.itemBtn.append(this.btnClose);
-
-		this.itemData.append(
-			this.itemName,
-			this.itemOwner,
-			this.itemStars,
-			this.itemBtn
-		);
-		this.repositoriesItem.append(this.itemData);
 
 		this.app.append(this.searchLine);
 		this.app.append(this.main);
@@ -46,9 +25,34 @@ export class View {
 
 	createRepository(repositoryData) {
 		const searchListItem = this.createElement('li', 'search-list-item');
-		searchListItem.textContent = repositoryData.login;
+		searchListItem.textContent = repositoryData.name;
 		this.searchList.append(searchListItem);
+		searchListItem.addEventListener('click', () => {
+			let { name, owner, stargazers_count } = repositoryData;
+			const itemData = this.createElement('ul', 'item');
+			const itemName = this.createElement('li', 'item-name');
+			const itemOwner = this.createElement('li', 'item-owner');
+			const itemStars = this.createElement('li', 'item-stars');
+			const itemBtn = this.createElement('li', 'item-btn');
+			const btnClose = this.createElement('button', 'btn-close');
+
+			itemName.textContent = `Name: ${name}`;
+			itemOwner.textContent = `Owner: ${owner.login}`;
+			itemStars.textContent = `Stars: ${stargazers_count}`;
+			itemBtn.append(btnClose);
+			itemData.append(itemName, itemOwner, itemStars, itemBtn);
+			let repositoriesItem = this.createElement('li', 'repositories-item');
+			repositoriesItem.append(itemData);
+			this.repositoriesList.append(repositoriesItem);
+			console.log(this.repositoriesItem);
+		});
 	}
 
-	
+	debounce(func) {
+		let timer;
+		return function () {
+			clearTimeout(timer);
+			timer = setTimeout(() => func.apply(this.arguments), 500);
+		};
+	}
 }

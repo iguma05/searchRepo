@@ -22,6 +22,7 @@
 	font-size: 48px;
 	line-height: 56px;
 	border-radius: 5px;
+	padding: 0 20px;
 }
 .search-list {
 }
@@ -33,6 +34,7 @@
 
 	font-size: 30px;
 	line-height: 35px;
+	padding: 0 20px;
 }
 .search-list-item:hover {
 	cursor: pointer;

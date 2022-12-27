@@ -6,17 +6,19 @@ export class Search {
 			'keyup',
 			this.debounce(this.searchRepositories.bind(this))
 		);
-		
 	}
 
 	async searchRepositories() {
 		if (this.view.searchInput.value) {
 			this.clearRepositories();
 			return await fetch(
-				`https://api.github.com/search/users?q=${this.view.searchInput.value}&per_page=5&page=1`
+				`https://api.github.com/search/repositories?q=${this.view.searchInput.value}&per_page=5`
 			).then((response) => {
 				response.json().then((response) => {
 					response.items.forEach((repository) => {
+						let { owner, stargazers_count } = repository;
+						// console.log(owner.login); //${owner}
+						// console.log(stargazers_count);// ${stars}`;
 						this.view.createRepository(repository);
 					});
 				});
