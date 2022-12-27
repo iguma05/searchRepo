@@ -34,6 +34,10 @@
 	font-size: 30px;
 	line-height: 35px;
 }
+.search-list-item:hover {
+	cursor: pointer;
+}
+
 .main {
 	position: absolute;
 	bottom: 70px;
