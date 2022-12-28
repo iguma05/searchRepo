@@ -47,16 +47,11 @@ export class View {
 		itemBtn.append(btnClose);
 		itemData.append(itemName, itemOwner, itemStars, itemBtn);
 		let repositoriesItem = this.createElement('li', 'repositories-item');
-		repositoriesItem.addEventListener('click', (event) =>
-			this.deleteRepository(event.target, repositoriesItem)
+		repositoriesItem.addEventListener('click', () =>
+			repositoriesItem.remove()
 		);
 		repositoriesItem.append(itemData);
 		this.repositoriesList.append(repositoriesItem);
-	}
-	deleteRepository(target, repositoriesItem) {
-		if (target.className === 'btn-close') {
-			repositoriesItem.remove();
-		}
 	}
 
 	debounce(func) {
