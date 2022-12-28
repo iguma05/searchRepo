@@ -9,6 +9,7 @@ export class View {
 		this.main = this.createElement('section', 'main');
 		this.repositoriesList = this.createElement('ul', 'repositories-list');
 		this.repositoriesItem = this.createElement('li', 'repositories-item');
+
 		this.main.append(this.repositoriesList);
 
 		this.app.append(this.searchLine);
@@ -46,9 +47,16 @@ export class View {
 		itemBtn.append(btnClose);
 		itemData.append(itemName, itemOwner, itemStars, itemBtn);
 		let repositoriesItem = this.createElement('li', 'repositories-item');
+		repositoriesItem.addEventListener('click', (event) =>
+			this.deleteRepository(event.target, repositoriesItem)
+		);
 		repositoriesItem.append(itemData);
 		this.repositoriesList.append(repositoriesItem);
-		console.log(this.repositoriesItem);
+	}
+	deleteRepository(target, repositoriesItem) {
+		if (target.className === 'btn-close') {
+			repositoriesItem.remove();
+		}
 	}
 
 	debounce(func) {

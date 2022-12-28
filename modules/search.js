@@ -17,8 +17,6 @@ export class Search {
 				response.json().then((response) => {
 					response.items.forEach((repository) => {
 						let { owner, stargazers_count } = repository;
-						// console.log(owner.login); //${owner}
-						// console.log(stargazers_count);// ${stars}`;
 						this.view.createRepository(repository);
 					});
 				});
